@@ -1,0 +1,56 @@
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace FixRevertApp
+{
+    public class MainForm : Form
+    {
+        private Button toggleButton;
+        private bool isFixed = false;
+
+        public MainForm()
+        {
+            // Window settings
+            this.Text = "Fix/Revert Tool";
+            this.Size = new Size(300, 200);
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            // Button settings
+            toggleButton = new Button();
+            toggleButton.Text = "Fix";
+            toggleButton.BackColor = Color.Green;
+            toggleButton.ForeColor = Color.White;
+            toggleButton.Font = new Font("Arial", 16, FontStyle.Bold);
+            toggleButton.Size = new Size(200, 80);
+            toggleButton.Location = new Point(50, 40);
+
+            toggleButton.Click += ToggleButton_Click;
+
+            this.Controls.Add(toggleButton);
+        }
+
+        private void ToggleButton_Click(object sender, EventArgs e)
+        {
+            isFixed = !isFixed;
+
+            if (isFixed)
+            {
+                toggleButton.Text = "Revert";
+                toggleButton.BackColor = Color.Red;
+            }
+            else
+            {
+                toggleButton.Text = "Fix";
+                toggleButton.BackColor = Color.Green;
+            }
+        }
+
+        [STAThread]
+        public static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.Run(new MainForm());
+        }
+    }
+}
