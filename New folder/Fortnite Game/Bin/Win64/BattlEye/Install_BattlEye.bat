@@ -1,0 +1,3 @@
+@echo off
+echo Installing BattlEye...
+..\FortniteClient-Win64-Shipping_BE 1 0

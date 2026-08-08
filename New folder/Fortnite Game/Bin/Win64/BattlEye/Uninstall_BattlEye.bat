@@ -1,0 +1,3 @@
+@echo off
+echo Uninstalling BattlEye...
+..\FortniteClient-Win64-Shipping_BE 4
